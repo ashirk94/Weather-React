@@ -73,7 +73,7 @@
 const regeneratorRuntime = require("regenerator-runtime");
 
 // my api key - replace this with yours!
-const apiKey = "AIzaSyDL9MZIX2qdnkRvQ-jAUJXK1kdheglNGTE";
+const apiKey = process.env.GOOGLE_KEY;
 
 // url pattern for api call
 const geocodeUrl = "https://maps.googleapis.com/maps/api/geocode/json?region=us&address=";
