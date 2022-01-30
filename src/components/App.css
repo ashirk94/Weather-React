@@ -37,7 +37,7 @@
   }
 }
 
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 
 .flex-parent {
   display: flex;
@@ -54,22 +54,22 @@
 }
 
 .zip-form label {
-    margin-top: 7px;
-    vertical-align: middle;
+  margin-top: 7px;
+  vertical-align: middle;
 }
 
 .zip-form input {
-    width: 20%;
-    margin: 0 10px;
-    font-size: 20px;
-    vertical-align: middle;
+  width: 20%;
+  margin: 0 10px;
+  font-size: 20px;
+  vertical-align: middle;
 }
 
 .zip-form button {
-    padding: 7px 10px;
-    background-color: #fff;
-    border: 1px solid #000;
-    border-radius: 5px;
+  padding: 7px 10px;
+  background-color: darkgreen;
+  border: 1px solid #000;
+  border-radius: 5px;
 }
 
 .weather-list {
@@ -87,17 +87,17 @@
   cursor: pointer;
 }
 
-  .weather-list-item :first-child {
-    margin-left: 0;
-  }
+.weather-list-item :first-child {
+  margin-left: 0;
+}
 
-  .weather-list-item :last-child {
-    margin-right: 0;
-  }
+.weather-list-item :last-child {
+  margin-right: 0;
+}
 
-  .weather-list-item > h3 {
-    font-weight: normal;
-  }
+.weather-list-item > h3 {
+  font-weight: normal;
+}
 
 .current-day {
   box-sizing: border-box;
@@ -113,29 +113,29 @@
   justify-content: flex-start;
   text-align: center;
 }
-  .details > div {
-    padding-left: 20px;
-  }
+.details > div {
+  padding-left: 20px;
+}
 
-  .details > div :first-child {
-    padding-left: 0;
-  }
+.details > div :first-child {
+  padding-left: 0;
+}
 
 .weather {
   font-size: 30px;
   line-height: 1.4;
 }
-    
-  .weather p {
-      margin: 0;
-  }
 
-  .weather img {
-      vertical-align: middle;
-  }
-.temperature-breakdown {
+.weather p {
   margin: auto;
-  padding: auto;
-  text-align: center;
 }
 
+.weather img {
+  vertical-align: middle;
+}
+.temperature-breakdown {
+  display: flex-start;
+  justify-content: center;
+  margin-left: 30%;
+  text-align: center;
+}
