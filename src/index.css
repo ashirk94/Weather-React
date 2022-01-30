@@ -5,9 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /*background: #1db3f9;
   padding: 20px;
-  font-family: 'Roboto', sans-serif;*/
+  font-family: 'Roboto', sans-serif;
+  background-image: url('../public/clouds.jpg');
 }
 
 code {
