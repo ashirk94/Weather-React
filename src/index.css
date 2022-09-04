@@ -9,8 +9,3 @@ body {
   font-family: 'Roboto', sans-serif;
   background-image: url('../public/clouds.jpg');
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}

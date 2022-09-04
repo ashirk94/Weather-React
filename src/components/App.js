@@ -13,7 +13,8 @@ class App extends Component {
 			zipcode: '',
 			city: {},
 			forecast: [],
-			selectedDate: null
+			selectedDate: null,
+            init: false
 		}
 		this.url = 'https://api.openweathermap.org/data/2.5/onecall?'
 		this.apikey =
@@ -33,13 +34,9 @@ class App extends Component {
 		const { forecast, timezoneOffset, selectedDate, city } = this.state
 		return (
 			<div id='app-container'>
+                <ZipForm onSubmit={this.onFormSubmit} />
 				<div className='app'>
-					<ZipForm onSubmit={this.onFormSubmit} />
-					<WeatherList
-						forecastDays={forecast}
-						timezoneOffset={timezoneOffset}
-						onDayClicked={this.onDayClicked}
-					/>
+                <div className='city-container'>
 					{selectedDate !== null && (
 						<CurrentDay
 							forecastDay={forecast[selectedDate]}
@@ -47,16 +44,33 @@ class App extends Component {
 							timezoneOffset={timezoneOffset}
 						/>
 					)}
+                    {(this.state.init && selectedDate == null && Object.keys(city).length > 0) && (
+                        <div className='city'>
+                            <h2>Weekly forecast for :</h2>
+                            <h1>{city.name}</h1>
+                            <h2>Click on a day to see daily forecast</h2>
+                        </div>
+                    )}
+                    </div>
+                    <div className='day-container'>
+					{this.state.init && (
+                        <WeatherList
+						forecastDays={forecast}
+						timezoneOffset={timezoneOffset}
+						onDayClicked={this.onDayClicked}
+					/>
+                    )}				
+                    </div>               
 				</div>
 			</div>
 		)
 	}
 	//made api calls async to account for retrieval time
 	onFormSubmit(zipcode) {
+        this.setState({ init: false })
 		//google maps api call
 		get(`${this.geocodeUrl + zipcode}&key=${this.googleKey}`)
 			.then(({ data }) => {
-				console.log(data)
 				let curCity = {
 					name: data.results[0].address_components[1].long_name,
 					lat: data.results[0].geometry.location.lat,
@@ -69,22 +83,25 @@ class App extends Component {
 					`${this.url}lat=${this.state.city.lat}&lon=${this.state.city.lon}${this.apikey}`
 				)
 					.then(({ data }) => {
-						console.log(data)
 						data.daily.splice(7)
 						this.setState({
 							forecast: data.daily,
 							timezoneOffset: data.timezone_offset
 						})
+                        this.setState({ init: true })
 					})
 					.catch((error) => {
-						//alert(error)
+						alert(error)
 						console.log(error)
+                        this.setState({ init: false })
 					})
 			})
 			.catch((error) => {
-				//alert(error)
+				alert('Invalid Zipcode/Address')
 				console.log(error)
+                this.setState({ init: false })
 			})
+            this.setState({ selectedDate: null })
 	}
 	onDayClicked(dayIndex) {
 		this.setState({ selectedDate: dayIndex })
