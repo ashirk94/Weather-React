@@ -16,9 +16,9 @@ class App extends Component {
       selectedDate: null,
     };
     this.url = "https://api.openweathermap.org/data/2.5/onecall?";
-    this.apikey =
-      "&exclude=minutely,hourly,current&units=imperial&appid=a243c5663029f159eef902fb93fa0112";
-    this.googleKey = "AIzaSyDL9MZIX2qdnkRvQ-jAUJXK1kdheglNGTE";
+    this.apikey = '&exclude=minutely,hourly,current&units=imperial&appid=' + process.env.WEATHER_API_KEY
+      
+    this.googleKey = process.env.GOOGLE_API_KEY
 
     // url pattern for api call
     this.geocodeUrl =
