@@ -1,7 +1,7 @@
 {
   "name": "weather-react",
   "version": "0.1.0",
-  "homepage": "https://ashirk94.github.io/weather-react",
+  "homepage": "https://ashirk94.github.io/Weather-React",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
